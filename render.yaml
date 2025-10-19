@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: echo-backend
+    env: node
+    rootDir: server
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: MONGODB_URI
+        value: <your-mongodb-uri>
+      - key: AUTH_URL
+        value: <your-auth-url>
+      - key: REDIS_URL
+        value: <your-redis-url>
+      - key: PORT
+        value: 3000
+    autoDeploy: true
+
+  - type: static
+    name: echo-frontend
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_SOCKET_URL
+        value: https://<your-backend-service-on-render>.onrender.com
+    autoDeploy: true
