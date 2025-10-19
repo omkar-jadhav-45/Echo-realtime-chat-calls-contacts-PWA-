@@ -10,9 +10,6 @@
   ],
   "routes": [
     { "handle": "filesystem" },
-    { "src": "/(.*)", "dest": "/index.html" }
-  ],
-  "env": {
-    "VITE_SOCKET_URL": "https://your-backend.example.com"
-  }
+    { "src": "/.*", "dest": "/index.html" }
+  ]
 }
