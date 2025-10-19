@@ -1,0 +1,8 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Inject Apache headers into staged files
+npm run -s headers:staged
+
+# Lint-staged tasks (optional placeholder)
+# npx --no-install lint-staged

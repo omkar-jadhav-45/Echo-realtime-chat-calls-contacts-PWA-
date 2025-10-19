@@ -1,0 +1,37 @@
+{
+  "name": "echo-root",
+  "private": true,
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Omkar Jadhav",
+    "email": "omkarnjadhav6898.in@gmail.com"
+  },
+  "engines": {
+    "node": ">=18 <22"
+  },
+  "workspaces": [
+    "server"
+  ],
+  "scripts": {
+    "prestart:mongo": "powershell -ExecutionPolicy Bypass -File scripts/start-mongo.ps1",
+    "start:mongo": "npm run prestart:mongo && npm run dev:all",
+    "prestart": "node scripts/kill-ports.js",
+    "dev:all": "concurrently -n server,web,mobile,open-expo -c green,cyan,magenta,gray \"npm run dev --prefix server\" \"npm run dev:open --prefix frontend\" \"npm run start:open --prefix mobile\" \"node scripts/open-expo-devtools.js\"",
+    "start": "npm run start --prefix server",
+    "build": "npm run build --prefix server",
+    "start:memdb": "cross-env USE_INMEMORY_MONGO=1 concurrently -n server,web,mobile,open-expo -c green,cyan,magenta,gray \"npm run dev --prefix server\" \"npm run dev:open --prefix frontend\" \"npm run start:open --prefix mobile\" \"node scripts/open-expo-devtools.js\"",
+    "start:server": "npm run dev --prefix server",
+    "start:server:memdb": "cross-env USE_INMEMORY_MONGO=1 npm run dev --prefix server",
+    "start:web": "npm run dev --prefix frontend",
+    "start:mobile": "npm run start --prefix mobile",
+    "check:services": "powershell -ExecutionPolicy Bypass -File scripts/check-services.ps1",
+    "headers": "node scripts/add-headers.js",
+    "headers:staged": "node scripts/add-headers.js --staged"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.10"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "echo-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Omkar Jadhav",
+    "email": "omkarnjadhav6898.in@gmail.com"
+  },
+  "scripts": {
+    "dev": "vite",
+    "dev:open": "vite --open",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "socket.io-client": "^4.7.2",
+    "three": "^0.169.0",
+    "@react-three/fiber": "^8.17.7",
+    "@react-three/drei": "^9.111.4",
+    "@react-three/postprocessing": "^2.16.1",
+    "postprocessing": "^6.35.4"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "typescript": "^5.1.6",
+    "vite": "^5.0.0",
+    "@vitejs/plugin-react": "^4.0.0"
+  }
+}
