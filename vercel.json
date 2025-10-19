@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "name": "echo-frontend",
+  "builds": [
+    {
+      "src": "frontend/package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "dist" }
+    }
+  ],
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ],
+  "env": {
+    "VITE_SOCKET_URL": "https://your-backend.example.com"
+  }
+}

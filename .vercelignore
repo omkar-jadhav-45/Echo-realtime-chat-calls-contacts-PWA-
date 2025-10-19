@@ -1,0 +1,4 @@
+# Ignore everything except the frontend for Vercel builds
+/*
+!/frontend
+!/vercel.json
